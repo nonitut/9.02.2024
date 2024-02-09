@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+}
+
+@font-face {
+  font-family: "CarlaSansLight";
+  src: url("../fonts/CarlaSansLight.ttf") format("truetype");
+  font-style: Light;
+  font-weight: Light;
+}
+
+p{
+    font-family: 'CarlaSansLight';
+}
+
+#follow-cursor{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: chartreuse;
+    border: 1px solid floralwhite;
+    border-radius: 50%;
+    animation: change 3s ease-in-out infinite;
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    /* transition: 2s; */
+}
+
+@keyframes change {
+    0%{ background-color: chartreuse; }
+    30%{ background-color: lightpink }
+    60%{ background-color: orangered }
+    100%{ background-color: chartreuse; }
+}
+
+@media ( max-width: 400px){
+    #follow-cursor{
+        display: none;
+    }
+}
+
+.large{
+    transform: scale(2) translateY(-20%) translateX(-20%);
+    border-radius: 20px;
+}
+
+#divbox{
+    width: 200px;
+    height: 200px;
+    margin-left: calc(50% - 100px);
+    margin-top: 30px;
+    background: gold;
+    position: relative;
+    display: block;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 200px;
+}
+
+#divmain{
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
+}
+
+#divbody, #divtop, #divleft{
+    margin: 2% 50% ;
+}
+
+#button{
+position: relative;
+margin-left: 50px;
+padding: 12px 80px;
+border-radius: 10px;
+color: aliceblue;
+background: blue;
+border: none;
+}
+
+#divmain .popup {
+    position: absolute;
+    top: 350px;
+    left: 50px;
+    width: 100px;
+    text-align: center;
+    opacity: 0;
+
+	-webkit-animation: popup 0.5s ease-in;
+	   -moz-animation: popup 0.5s ease-in;
+	    -ms-animation: popup 0.5s ease-in;
+	     -o-animation: popup 0.5s ease-in;
+	        animation: popup 0.5s ease-in;
+}
+
+@-webkit-keyframes popup {
+	0% 		{ -webkit-transform: translateY(0px) scale(0.5); opacity: 0.5; }
+	10% 	{ -webkit-transform: translateY(0px) scale(1); opacity: 1;   }
+	50% 	{ opacity: 1; }
+	100%	{ -webkit-transform: translateY(-60px); opacity: 0; }
+}
+
+@keyframes popup {
+	0% 		{ transform: translateY(0px) scale(0.5); opacity: 0.5; }
+	10% 	{ transform: translateY(0px) scale(1); opacity: 1;   }
+	50% 	{ opacity: 1; }
+	100%	{ transform: translateY(-60px); opacity: 0; }
+}
